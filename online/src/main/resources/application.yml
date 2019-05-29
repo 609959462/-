@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://39.96.73.227:3306/business
+      username: root
+      password: Peipengfei123@
+      max-active: 20
+      max-wait: 6000
+      min-idle: 1
+      test-on-borrow: true
+      test-on-return: true
+  thymeleaf:
+      mode:HTML5
+mybatis:
+  mapper-locations: classpath*:com/Ppf/mapper/*Mapper.xml
+  config-location: classpath:mybatis-config.xml
+server:
+  port: 8888
+  servlet:
+    context-path: /
+
+online:
+  imageHost: http://img.peipf.com/
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: countSql
+logging:
+  level:
+    com.ppf.dao: debug
+
+### 配置redis连接池参数(# redis.conf 1.port 2.bind 0.0.0.0 3.requirepass newpassword)
+redis:
+  max:
+    total: 8
+    idle: 8
+  min:
+    idle: 2
+  test:
+    borrow: true
+    return: true
+  ip: 39.96.73.227
+  port: 5379
+  password: 123456
+  timeout: 2000
